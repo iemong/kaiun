@@ -5,7 +5,7 @@ const sound2 = './sounds/power2.wav'
 const sound3 = './sounds/power3.wav'
 
 player.play({
-    path: sound3,
+    path: sound1,
     sync: true,
 }).then(() => {
     console.log('The wav file started to be played successfully.');
