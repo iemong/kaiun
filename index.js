@@ -16,7 +16,7 @@ const playSound = () => {
     });
 }
 const setup = () => {
-    gpio.setup(13, gpio.DIR_OUT).then(() => gpio.write(7, true)).catch(e => console.error(e))
+    gpio.setup(13, gpio.DIR_OUT).then(() => gpio.write(13, true)).catch(e => console.error(e))
 }
 
 setup()
