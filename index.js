@@ -15,11 +15,22 @@ const playSound = () => {
         console.error(error);
     });
 }
-const setup = () => {
-    gpio.setup(7, gpio.DIR_OUT).then(() => {
-        return gpio.write(7, true);
-    }).catch(e => console.error(e)).finally(() => {
+const setup = async () => {
+    try {
+
+    } catch (e) {
+        console.error(e)
+    } finally {
         console.log('finish')
+    }
+    await gpio.setup(7, gpio.DIR_OUT)
+    await gpio.write(7, true);
+
+    gpio.on('change', (channel, value) => {
+        console.log(channel, value)
+        if(channel === 11) {
+            console.log(value)
+        }
     })
 }
 
