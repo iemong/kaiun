@@ -18,5 +18,8 @@
   "homepage": "https://github.com/iemong/kaiun#readme",
   "dependencies": {
     "node-wav-player": "^0.2.0"
+  },
+  "devDependencies": {
+    "rpi-gpio": "^2.1.7"
   }
 }
