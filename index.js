@@ -15,25 +15,25 @@ const playSound = () => {
         console.error(error);
     });
 }
+
 const setup = async () => {
     try {
+        gpio.on('change', (channel, value) => {
+            if(channel === 11) {
+                console.log(value)
+                playSound()
+            }
+        })
 
+        await gpio.setup(7, gpio.DIR_OUT)
+        await gpio.write(7, true);
+
+        await gpio.setup(11, gpio.DIR_IN, gpio.EDGE_BOTH)
     } catch (e) {
         console.error(e)
     } finally {
         console.log('finish')
     }
-    gpio.on('change', (channel, value) => {
-        console.log(channel, value)
-        if(channel === 11) {
-            console.log(value)
-        }
-    })
-
-    await gpio.setup(7, gpio.DIR_OUT)
-    await gpio.write(7, true);
-
-    await gpio.setup(11, gpio.DIR_IN, gpio.EDGE_BOTH)
 }
 
 setup()
