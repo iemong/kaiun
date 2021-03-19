@@ -5,13 +5,19 @@ const sound1 = './sounds/power1.wav'
 const sound2 = './sounds/power2.wav'
 const sound3 = './sounds/power3.wav'
 
+let isPlaying = false
+
 const playSound = () => {
+    if(isPlaying) return
+    isPlaying = true
     player.play({
         path: sound1,
         sync: true,
     }).then(() => {
+        isPlaying = false
         console.log('The wav file started to be played successfully.');
     }).catch((error) => {
+        isPlaying = false
         console.error(error);
     });
 }
